@@ -51,6 +51,8 @@ else()
   add_definitions(-DDMLC_USE_AZURE=0)
 endif()
 
+add_definitions(-DMSHADOW_USE_SSE=0)
+
 # compile
 if(MSVC)
   add_definitions(-DDMLC_USE_CXX11)
@@ -67,7 +69,7 @@ else(MSVC)
   check_cxx_compiler_flag("-std=c++0x"    SUPPORT_CXX0X)
   check_cxx_compiler_flag("-msse2"        SUPPORT_MSSE2)
   check_cxx_compiler_flag("-openmp"       SUPPORT_OPENMP)
-  set(CMAKE_C_FLAGS "-O3 -Wall -msse2 -Wno-unknown-pragmas -std=c++0x -fPIC")
+  set(CMAKE_C_FLAGS "-O3 -Wall -Wno-unknown-pragmas -std=c++0x -fPIC")
   if(SUPPORT_OPENMP)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
   endif()

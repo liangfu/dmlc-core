@@ -39,3 +39,6 @@ GTEST_PATH=
 
 # path to third-party dependences such as glog
 DEPS_PATH=
+
+ADD_CCFLAGS=-DMSHADOW_USE_SSE=0
+
